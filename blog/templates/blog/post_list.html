@@ -1,20 +1,15 @@
-<html>
-    <head>
-        <title>Ashleigh's blog</title>
-    </head>
-    <body>
-        <div>
-            <h1><em>Ashleigh Miles Bridging Coursework</em> </h1>
-        </div>
+{% extends 'blog/base.html' %}
 
-        {% for post in posts %}
-            <div>
-                <!--<p>published: {{ post.published_date}}</p> -->
-                <h2><a href="">{{post.title}}</a></h2>
-                <p>{{post.text|linebreaksbr}}</p>
-            </div>
-        {% endfor %}
-       
-        
-    </body>
-</html>
+{% block content%}
+    {% for post in posts %}
+        <div class = post>
+            <h2><a href="{% url 'post_detail' pk=post.pk %}">{{post.title}}</a></h2>
+            <p>{{post.text|linebreaksbr}}</p>
+            {% if post.published_date %}
+                <div class ="date">
+                    <p>published: {{ post.published_date}}</p>
+                </div> 
+            {% endif %}
+        </div>
+    {% endfor %}
+{% endblock %}
