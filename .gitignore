@@ -3,5 +3,6 @@
 /.vscode
 __pycache__
 coursework
+db.sqlite3
 /static
 .DS_Store
