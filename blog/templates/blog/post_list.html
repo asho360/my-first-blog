@@ -7,9 +7,14 @@
             <h1><em>Ashleigh Miles Bridging Coursework</em> </h1>
         </div>
 
-        <div>
-            <h2>My first post</h2>
-            <p>What I enjoyed this year <br>Nothing <br> published: 15/05/2020, 19:06</p>
-        </div>
+        {% for post in posts %}
+            <div>
+                <p>published: {{ post.published_date}}</p>
+                <h2><a href="">{{post.title}}</a></h2>
+                <p>{{post.text|linebreaksbr}}</p>
+            </div>
+        {% endfor %}
+
+        
     </body>
 </html>
