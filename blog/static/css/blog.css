@@ -3,7 +3,7 @@
 }
 
 .page-header {
-    background-color: rgb(1, 182, 143);
+    background-color: #e4202a;
     margin-top: 0;
     padding: 20px 20px 20px 40px;
 }
@@ -20,12 +20,9 @@
 
 
 h1, h2, h3, h4 {
-    font-family: 'Lobster', cursive;
+    font-family:'Orbitron', sans-serif;
 }
 
-.date {
-    color: #e98686;
-}
 
 .save {
     float: right;
@@ -46,6 +43,16 @@ h1, h2, h3, h4 {
     margin-bottom: 70px;
 }
 
-.post h2 a, .post h2 a:visited {
-    color: #d872d3;
+.post h2 a, .post h2 a:visited, .post h2 {
+    color: #3ab9b9;
+}
+
+.post p {
+    font-family: 'Indie Flower', cursive;
+    font-size: 14pt;
+    color:#000000;
+}
+
+.date p {
+    color: #e98686;
 }
