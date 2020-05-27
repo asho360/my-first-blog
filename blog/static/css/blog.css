@@ -1,5 +1,6 @@
  body {
     padding-left: 15px;
+
 }
 
 .page-header {
@@ -15,9 +16,11 @@
 }
 
 .content {
-    margin-left: 40px;
-}
+    text-align: left;
+    width: 800px;
+    margin: 0 auto;
 
+}
 
 h1, h2, h3, h4 {
     font-family:'Orbitron', sans-serif;
