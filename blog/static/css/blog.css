@@ -4,9 +4,11 @@
 }
 
 .page-header {
-    background-color: #e4202a;
+    background-image: linear-gradient( 135deg, #3ab9b9 10%, #7a1e63 100%);
     margin-top: 0;
     padding: 20px 20px 20px 40px;
+    height: 200px;
+    border-radius: 0 0 85% 85% / 30%;
 }
 
 .page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
@@ -16,7 +18,6 @@
 }
 
 .content {
-    padding-left: 0.2em;
     text-align: left;
     /*
     margin-right: auto;
@@ -60,7 +61,8 @@ h1, h2, h3, h4 {
 }
 
 .date p {
-    color: #e4202a;
+    /*color: #e4202a;*/
+    color: #b93297;
     
 }
 
