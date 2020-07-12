@@ -4,17 +4,25 @@
 }
 
 .page-header {
-    background-image: linear-gradient( 135deg, #3ab9b9 10%, #7a1e63 100%);
+    background-image: linear-gradient( 135deg, #3ab9b9 20%, #7a1e63 100%);
     margin-top: 0;
     padding: 20px 20px 20px 40px;
     height: 200px;
     border-radius: 0 0 85% 85% / 30%;
+    text-align: center;
+    width: 100%;
+    height: 30%;
 }
 
 .page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
     color: #ffffff;
     font-size: 36pt;
     text-decoration: none;
+}
+
+.page-header h2 {
+    color: #ffffff;
+    font-size: 20pt;
 }
 
 .content {
