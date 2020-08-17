@@ -16,3 +16,16 @@ class Post(models.Model):
     def __str__(self):
         return self.title
 
+class CV(models.Model):
+    name = models.CharField(max_length=200)
+    address = models.TextField()
+    number = models.CharField(max_length=20)
+    email = models.CharField(max_length=200)
+    bio = models.TextField()
+
+    def publish(self):
+        self.save()
+
+    def __str__(self):
+        return self.name
+    

@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.utils import timezone
 from .models import Post
 from .forms import PostForm
+from .models import CV
 
 # Create your views here.
 
@@ -59,5 +60,6 @@ def post_remove(request, pk):
     return redirect('post_list')
 
 def cv_home(request):
-    return render(request, 'cv/cv_home.html')
+    cv = CV.objects.all()
+    return render(request, 'cv/cv_home.html', {'cvs':cv})
 

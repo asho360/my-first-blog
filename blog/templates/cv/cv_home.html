@@ -1,5 +1,20 @@
 {%extends 'base.html' %}
 
+
 {% block content %}
+    <div class="cv">
+        <h1><center>Curriculm Vitae</center></h1>
+        {% load static %} 
+        <img src="{% static 'img/ProfilePic.jpg' %}"> 
+        <br>
+        {% for cv in cvs %}
+            <p><b style="font-family:'Orbitron'; color: #3ab9b9;">Name:</b> {{cv.name}}</p>
+            <p><b style="font-family:'Orbitron'; color: #3ab9b9;">Address: </b>{{cv.address}}</p>
+            <p><b style="font-family:'Orbitron'; color: #3ab9b9;">Mobile Number: </b>{{cv.number}}</p>
+            <p><b style="font-family:'Orbitron'; color: #3ab9b9;">Email:</b> {{cv.email}}</p>
+            <p><b style="font-family:'Orbitron'; color: #3ab9b9;">Bio: </b>{{cv.bio}}</p>
+        {%endfor%}
+    </div>
+    
 
 {% endblock %}
