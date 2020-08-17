@@ -58,3 +58,6 @@ def post_remove(request, pk):
     post.delete()
     return redirect('post_list')
 
+def cv_home(request):
+    return render(request, 'cv/cv_home.html')
+
