@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.utils import timezone
 from .models import Post
 from .forms import PostForm
+from .forms import CVForm
 from .models import CV
 
 # Create your views here.
@@ -63,3 +64,15 @@ def cv_home(request):
     cv = CV.objects.all()
     return render(request, 'cv/cv_home.html', {'cvs':cv})
 
+@login_required
+def edit_cv(request):
+    cv = get_object_or_404(CV, pk=1)
+    if request.method == "POST":
+        form = CVForm(request.POST, instance=cv)
+        if form.is_valid():
+            cv = form.save(commit=False)
+            cv.save()
+            return redirect('cv_home')
+    else:
+        form = CVForm(instance=cv)   
+    return render(request, 'cv/edit_cv.html', {'form': form})

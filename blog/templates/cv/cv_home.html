@@ -6,7 +6,7 @@
         <h1><center>Curriculm Vitae</center></h1>
         {% load static %} 
         <img src="{% static 'img/ProfilePic.jpg' %}"> 
-        <br>
+        <a class="btn btn-default" href="{% url 'edit_cv' %}"><span class="glyphicon glyphicon-pencil"></span></a>
         {% for cv in cvs %}
             <p><b style="font-family:'Orbitron'; color: #3ab9b9;">Name:</b> {{cv.name}}</p>
             <p><b style="font-family:'Orbitron'; color: #3ab9b9;">Address: </b>{{cv.address}}</p>
