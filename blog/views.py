@@ -1,10 +1,10 @@
 from django.shortcuts import get_object_or_404, redirect, render
 from django.contrib.auth.decorators import login_required
 from django.utils import timezone
-from .models import Post
+from .models import Post, CV, Experience
 from .forms import PostForm
-from .forms import CVForm
-from .models import CV
+from .forms import CVForm, ExperienceForm
+
 
 # Create your views here.
 
@@ -62,7 +62,8 @@ def post_remove(request, pk):
 
 def cv_home(request):
     cv = CV.objects.all()
-    return render(request, 'cv/cv_home.html', {'cvs':cv})
+    experience = Experience.objects.filter().order_by('start_date')
+    return render(request, 'cv/cv_home.html', {'cvs':cv,'experiences':experience})
 
 @login_required
 def edit_cv(request):
@@ -76,3 +77,34 @@ def edit_cv(request):
     else:
         form = CVForm(instance=cv)   
     return render(request, 'cv/edit_cv.html', {'form': form})
+
+@login_required
+def edit_experience(request, pk):
+    experience = get_object_or_404(Experience, pk=pk)
+    if request.method == "POST":
+        form = ExperienceForm(request.POST, instance=experience)
+        if form.is_valid():
+            experience = form.save(commit=False)
+            experience.save()
+            return redirect('cv_home')
+    else:
+        form = ExperienceForm(instance=experience)
+    return render(request, 'cv/edit_experience.html', {'form': form})
+
+@login_required
+def new_experience(request):
+    if request.method == "POST":
+        form = ExperienceForm(request.POST)
+        if form.is_valid:
+            experience = form.save(commit=False)
+            experience.save()
+            return redirect('cv_home')
+    else:
+        form = ExperienceForm()
+    return render(request, 'cv/edit_experience.html', {'form': form})
+
+@login_required
+def remove_experience(request, pk):
+    experience = get_object_or_404(Experience, pk=pk)
+    experience.delete()
+    return redirect('cv_home')

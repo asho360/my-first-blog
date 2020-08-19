@@ -8,13 +8,32 @@
         <img src="{% static 'img/ProfilePic.jpg' %}"> 
         <a class="btn btn-default" href="{% url 'edit_cv' %}"><span class="glyphicon glyphicon-pencil"></span></a>
         {% for cv in cvs %}
-            <p><b style="font-family:'Orbitron'; color: #3ab9b9;">Name:</b> {{cv.name}}</p>
-            <p><b style="font-family:'Orbitron'; color: #3ab9b9;">Address: </b>{{cv.address}}</p>
-            <p><b style="font-family:'Orbitron'; color: #3ab9b9;">Mobile Number: </b>{{cv.number}}</p>
-            <p><b style="font-family:'Orbitron'; color: #3ab9b9;">Email:</b> {{cv.email}}</p>
-            <p><b style="font-family:'Orbitron'; color: #3ab9b9;">Bio: </b>{{cv.bio}}</p>
-        {%endfor%}
+            <p><b class='att'">Name:</b> {{cv.name}}</p>
+            <p><b class='att'>Address: </b>{{cv.address}}</p>
+            <p><b class="att">Mobile Number: </b>{{cv.number}}</p>
+            <p><b class="att">Email:</b> {{cv.email}}</p>
+            <p><b class="att">Bio: </b>{{cv.bio}}</p>
+        {% endfor %}
     </div>
-    
+    <hr>
+    <h1><center>Experience <a href="{% url 'new_experience' %}" id="expIcon"><span class="glyphicon glyphicon-plus"></span></a></center></h1>
+    {% for experience in experiences%}
+        <div class='education'>
+            <div class='card'>
+                <div class = 'cardPad'>
+                    <a class="btn btn-default" href="{% url 'edit_experience' pk=experience.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+                    <a class="btn btn-default" href="{% url 'remove_experience' pk=experience.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
+                    <p><b class="att">Title:</b> {{experience.title}}</p>
+                    <p><b class="att">Company: </b>{{experience.company}}</p>
+                    <p><b class="att">Description: </b>{{experience.description}}</p>
+                    <p><b class="att">Start Date:</b> {{experience.start_date}}</p>
+                    <p><b class="att">End Date: </b>{{experience.end_date}}</p>
+                    <br>
+                    <br> 
+                </div>                                   
+            </div>
+        </div>
+    {% endfor %}
+    <br>
 
 {% endblock %}

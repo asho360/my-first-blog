@@ -10,7 +10,10 @@ urlpatterns = [
     path('post/<pk>/publish/', views.post_publish, name='post_publish'),
     path('post/<pk>/remove/', views.post_remove, name='post_remove'),
     path('cv/', views.cv_home, name='cv_home'),
-    path('cv/edit/', views.edit_cv, name='edit_cv'),
+    path('cv/edit_cv/', views.edit_cv, name='edit_cv'),
+    path('cv/<int:pk>/edit_experience', views.edit_experience, name='edit_experience'),
+    path('cv/new_experience', views.new_experience, name='new_experience'),
+    path('cv/<pk>/remove/', views.remove_experience, name='remove_experience'),
 ]
 
 

@@ -5,11 +5,20 @@
     color:#000000;
 }
 
+#expIcon{
+    color:#000000;
+}
 
-.att p {
+#expIcon:hover {
+    color:#7a1e63;
+}
+
+.att {
     font-size: 20px;
     color: #3ab9b9;
+    font-family:'Orbitron';
 }
+
 .cv img {
     border-radius: 50%;
     margin-left: auto;
@@ -20,6 +29,25 @@
     font-size: 28pt;
     /*text-align: center;
     padding-left: 300px;*/
+}
+.cardPad {
+    padding: 6px 16px;
+}
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 5px;
+    padding: 2px, 16px;
+}
+
+.card:hover {
+    box-shadow: 0 16px 32px 0 rgba(33, 212, 203, 0.2);
+  }
+
+.education p {
+    font-family: 'Raleway', sans-serif;
+    font-size: 16pt;
+    color:#000000;
 }
 .page-header {
     background-image: linear-gradient( 135deg, #3ab9b9 20%, #7a1e63 100%);
