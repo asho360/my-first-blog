@@ -25,6 +25,7 @@ class CVVistorTest(LiveServerTestCase):
         self.assertIn("Ashleigh's blog", self.browser.title)
         self.browser.get(self.live_server_url + '/cv/')
         time.sleep(5)
-        self.fail('Finish the test!')
+        self.browser.get(self.live_server_url + '/cv/edit_cv')
+        time.sleep(5)
 
 

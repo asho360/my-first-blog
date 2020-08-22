@@ -63,7 +63,7 @@ def post_remove(request, pk):
 def cv_home(request):
     cv = CV.objects.all()
     experience = Experience.objects.filter().order_by('start_date')
-    return render(request, 'cv/cv_home.html', {'cvs':cv,'experiences':experience})
+    return render(request, 'cv/cv_home.html', {'cvs':cv, 'experiences':experience})
 
 @login_required
 def edit_cv(request):

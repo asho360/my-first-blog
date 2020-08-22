@@ -5,8 +5,10 @@
     <div class="cv">
         <h1><center>Curriculm Vitae</center></h1>
         {% load static %} 
-        <img src="{% static 'img/ProfilePic.jpg' %}"> 
-        <a class="btn btn-default" href="{% url 'edit_cv' %}"><span class="glyphicon glyphicon-pencil"></span></a>
+        <img src="{% static 'img/ProfilePic.jpg' %}">
+        {% if user.is_authenticated %} 
+            <a class="btn btn-default" href="{% url 'edit_cv' %}"><span class="glyphicon glyphicon-pencil"></span></a>
+        {% endif %}    
         {% for cv in cvs %}
             <p><b class='att'">Name:</b> {{cv.name}}</p>
             <p><b class='att'>Address: </b>{{cv.address}}</p>
@@ -21,8 +23,10 @@
         <div class='education'>
             <div class='card'>
                 <div class = 'cardPad'>
-                    <a class="btn btn-default" href="{% url 'edit_experience' pk=experience.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
-                    <a class="btn btn-default" href="{% url 'remove_experience' pk=experience.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
+                    {% if user.is_authenticated %}
+                        <a class="btn btn-default" href="{% url 'edit_experience' pk=experience.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+                        <a class="btn btn-default" href="{% url 'remove_experience' pk=experience.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
+                    {% endif %}    
                     <p><b class="att">Title:</b> {{experience.title}}</p>
                     <p><b class="att">Company: </b>{{experience.company}}</p>
                     <p><b class="att">Description: </b>{{experience.description}}</p>
